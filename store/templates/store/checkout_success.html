@@ -1,0 +1,57 @@
+{% extends 'store/base.html' %}
+{% load cart_extras %}
+
+{% block content %}
+<div style="max-width: 600px; margin: auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center;">
+
+    {% if order %}
+        <h2 style="color: #4A148C; font-size: 2rem; margin-bottom: 15px;">🎉 Order Successful!</h2>
+        <p style="font-size: 1.2rem; color: #555;">Thank you for your purchase.</p>
+        <p style="font-size: 1.1rem; color: #444;">Your order number is: <strong style="color: #8e44ad;">#{{ order.id }}</strong></p>
+
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+
+        <h3 style="color: #6A1B9A; font-size: 1.3rem; margin-bottom: 10px;">Items in your order:</h3>
+        <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+            {% for item in order.items.all %}
+                <li style="margin: 10px 0; font-size: 1.1rem; color: #333;">
+                    <strong>{{ item.product.name }}</strong> &times; {{ item.quantity }} — ₹{{ item.price|floatformat:2|multiply:item.quantity }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p style="font-size: 1.2rem; font-weight: bold;">
+            Total: ₹{{  order.get_total_cost }}
+        </p>
+
+    {% elif cart_items %}
+        <h2 style="color: #4A148C;">🛒 Review Your Cart</h2>
+        <ul style="list-style: none; padding: 0;">
+            {% for item in cart_items %}
+                <li style="margin: 10px 0; font-size: 1.1rem;">
+                    {{ item.product.name }} × {{ item.quantity }} — ₹{{ item.quantity|multiply:item.product.price }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p style="font-size: 1.2rem; font-weight: bold; margin-top: 20px;">Total: ₹{{ total }}</p>
+
+        <form method="post" style="margin-top: 25px;">
+            {% csrf_token %}
+            <button type="submit"
+                    style="padding: 10px 20px; font-size: 1rem; background-color: #8e44ad; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                Proceed to Checkout
+            </button>
+        </form>
+
+    {% else %}
+        <h2 style="color: red;">Your cart is empty.</h2>
+        <p>Add some products to place an order.</p>
+    {% endif %}
+
+    <a href="{% url 'index' %}"
+       style="display: inline-block; padding: 12px 25px; font-size: 1rem; background-color: #8e44ad; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px;">
+        Continue Shopping 🛍️
+    </a>
+</div>
+{% endblock %}

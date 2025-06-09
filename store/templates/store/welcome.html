@@ -1,0 +1,75 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .welcome-container {
+        text-align: center;
+        background: linear-gradient(to bottom right, #f5f5f5, #e0f2f1);
+        padding: 50px 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-container h1 {
+        font-size: 3rem;
+        color: #4CAF50;
+        margin-bottom: 10px;
+    }
+
+    .welcome-container h2 {
+        font-size: 1.5rem;
+        color: #555;
+        margin-bottom: 40px;
+    }
+
+    .herb-icon {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto 30px;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        margin-top: 30px;
+        padding: 14px 30px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #388E3C;
+    }
+</style>
+
+<div class="welcome-container">
+    <img src="{% static 'store/images/herb-icon.png' %}" class="herb-icon" alt="Herbal Icon">
+    <h1>Welcome to SerenSoak</h1>
+    <h2>Your Destination for Pure Herbal Bath Salts</h2>
+
+    <p class="description">
+        SerenSoak was born from the idea of indulging in serenity and self-care. Every salt blend we offer is carefully
+        curated using natural herbs, essential oils, and minerals to give your body a spa-like experience at home.
+    </p>
+    <p class="description">
+        Why "SerenSoak"? It represents *serenity* and *soaking away stress*. Our products are chemical-free, cruelty-free,
+        and crafted with love and care to provide both physical relief and mental calm.
+    </p>
+    <p class="description">
+        Whether you're recovering after a long day or pampering your skin, SerenSoak promises rejuvenation.
+    </p>
+
+    <a href="{% url 'index' %}"><button class="cta-button">View Products</button></a>
+</div>
+{% endblock %}

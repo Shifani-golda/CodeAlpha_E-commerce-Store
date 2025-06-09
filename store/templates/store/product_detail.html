@@ -1,0 +1,157 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  .product-detail-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .product-image {
+    flex: 1 1 400px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+
+  .product-info {
+    flex: 1 1 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .product-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4A148C;
+  }
+
+  .product-info h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .product-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .product-info .price {
+    font-size: 1.8rem;
+    color: #AD1457;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  .product-info form {
+    margin-top: 20px;
+  }
+
+  .product-info label {
+    font-weight: 600;
+  }
+
+  .product-info input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 60px;
+    margin-left: 10px;
+  }
+
+  .product-info button {
+    margin-top: 15px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .product-info button:hover {
+    background-color: #732d91;
+  }
+
+  .remove-link {
+    margin-top: 10px;
+    display: inline-block;
+    color: #d32f2f;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .remove-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .product-detail-container {
+      flex-direction: column;
+      padding: 20px;
+    }
+    .product-info h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div class="product-detail-container">
+  <div class="product-image">
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% else %}
+      <img src="https://via.placeholder.com/400x400?text=No+Image" alt="No Image">
+    {% endif %}
+  </div>
+
+  <div class="product-info">
+    <h1>{{ product.name }}</h1>
+
+    <h3>Key Ingredients:</h3>
+    <p>{{ product.key_ingredients }}</p>
+
+    <h3>Benefits:</h3>
+    <p>{{ product.benefits }}</p>
+
+    <h3>Description:</h3>
+    <p>{{ product.description }}</p>
+
+    {% if user.is_staff %}
+      <a href="{% url 'remove_from_cart' product.id %}" class="remove-link" onclick="return confirm('Are you sure?');">Remove from Cart</a>
+    {% endif %}
+
+    <p class="price">₹{{ product.price }}</p>
+
+    <form method="POST" action="{% url 'add_to_cart' product.id %}">
+      {% csrf_token %}
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+      <br>
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

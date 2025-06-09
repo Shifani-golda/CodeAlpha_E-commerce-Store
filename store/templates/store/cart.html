@@ -1,0 +1,137 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<style>
+  .cart-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 32px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 14px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    color: #555;
+    font-weight: bold;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  .remove-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  .remove-btn:hover {
+    background-color: #e60000;
+  }
+
+  .total-section {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    margin-top: 10px;
+  }
+
+  .checkout-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 12px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  .checkout-btn:hover {
+    background-color: #388e3c;
+  }
+
+  .empty-cart {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 50px;
+  }
+</style>
+
+<div class="cart-container">
+  <h1>Your Cart</h1>
+
+  {% if cart_items %}
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+          <tr>
+            <td>
+              {% if item.product.image %}
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="80" height="80" style="object-fit: cover; border-radius: 8px;">
+              {% else %}
+                <span>No image</span>
+              {% endif %}
+            </td>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.product.price }}</td>
+            <td>₹{{ item.subtotal }}</td>  <!-- ✅ This line is updated -->
+            <td>
+              <a href="{% url 'remove_from_cart' item.product.id %}" class="remove-btn">Remove</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="total-section">
+      Grand Total: ₹{{ total }}
+    </div>
+
+    <a href="{% url 'checkout' %}" class="checkout-btn">Proceed to Checkout</a>
+  {% else %}
+    <div class="empty-cart">Your cart is empty.</div>
+  {% endif %}
+</div>
+{% endblock %}

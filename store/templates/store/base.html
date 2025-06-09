@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SerenSoak</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            background-color: #fafafa;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        nav {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 6px;
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #732d91;
+        }
+
+        /* Container for nav + sidebar + main content */
+        .main-container {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+
+        /* Sidebar with categories */
+        .sidebar {
+            width: 220px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            color: #8e44ad;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar ul li a {
+            color: #4A148C;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #AD1457;
+        }
+
+        /* Content area */
+        .content {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-height: 400px;
+        }
+
+        hr {
+            margin-top: 0;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+            gap: 25px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 15px; /* Rounded corners */
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 a {
+            color: #4A148C;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .product-card h3 a:hover {
+            color: #AD1457;
+        }
+
+        .product-card p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-card a[href*="add_to_cart"] {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #8e44ad;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card a[href*="add_to_cart"]:hover {
+            background-color: #732d91;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-purple {
+             background-color: #8e44ad;
+             color: white;
+             transition: background-color 0.3s ease;
+        }
+
+        .btn-purple:hover {
+             background-color: #732d91;
+        }
+
+        .register-container {
+             max-width: 500px;
+             margin: 0 auto;
+             background-color: #fff;
+             padding: 30px;
+             border-radius: 15px;
+             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .register-container h2 {
+             text-align: center;
+             color: #8e44ad;
+             margin-bottom: 25px;
+        }
+
+        .form-group {
+             margin-bottom: 20px;
+             display: flex;
+             flex-direction: column;
+        }
+
+        .form-group label {
+             font-weight: bold;
+             margin-bottom: 6px;
+        }
+
+        .form-group input {
+             padding: 10px;
+             font-size: 14px;
+             border-radius: 6px;
+             border: 1px solid #ccc;
+        }
+
+        .form-group input:focus {
+             border-color: #8e44ad;
+             outline: none;
+        }
+
+        .help-text {
+             font-size: 12px;
+             color: #777;
+             margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'index' %}"><button>Products</button></a>
+        <a href="{% url 'view_cart' %}"><button>Cart</button></a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}"><button>Logout</button></a>
+        {% else %}
+            <a href="{% url 'login' %}"><button>Login</button></a>
+            <a href="{% url 'register' %}"><button>Register</button></a>
+        {% endif %}
+
+        <a href="/admin/"><button>Admin</button></a>
+    </nav>
+
+    <hr>
+    {% if messages %}
+       <div style="margin: 10px auto; width: 80%; max-width: 800px;">
+          {% for message in messages %}
+             <div style="
+                padding: 12px 20px;
+                background-color: {% if message.tags == 'error' or message.tags == 'warning' %}#f8d7da{% elif message.tags == 'success' %}#d4edda{% else %}#cce5ff{% endif %};
+                color: #333;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                border-left: 6px solid {% if message.tags == 'error' or message.tags == 'warning' %}#f44336{% elif message.tags == 'success' %}#28a745{% else %}#007bff{% endif %};
+             ">
+                {{ message }}
+             </div>
+          {% endfor %}
+       </div>
+    {% endif %}
+
+
+    <div class="main-container">
+        {% if show_sidebar %}
+           <!-- Sidebar for categories -->
+           <aside class="sidebar">
+              <h3>Categories</h3>
+              <ul>
+                 {% for category in categories %}
+                   <li><a href="{% url 'store_by_category' category.id %}">{{ category.name }}</a></li>
+                 {% empty %}
+                   <li>No categories available.</li>
+                 {% endfor %}
+              </ul>
+           </aside>
+        {% endif %}
+
+
+        <!-- Main content -->
+        <section class="content">
+            {% block content %}{% endblock %}
+        </section>
+    </div>
+</body>
+</html>
