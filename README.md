@@ -110,3 +110,39 @@ source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
+
+Create a superuser to access Django Admin:
+python manage.py createsuperuser
+```
+
+
+
+## 📸 Screenshots  
+<Include these if available>
+
+- 🔐 **Login Page**
+- 🧂 **Product Listing (after login)**
+- 🛒 **Cart Page**
+- 🖼️ **Individual Product Detail**
+
+---
+
+## 🧠 What I Learned
+
+Through SerenSoak, I gained hands-on experience in:
+
+- Building secure user login systems in Django  
+- Creating dynamic product-based views and restricting access  
+- Designing a frontend that matches a theme (herbal wellness)  
+- Managing GitHub repositories and deploying web apps  
+
+---
+
+## 📬 Feedback
+
+If you have any suggestions or feedback, feel free to connect with me:
+
+📧 Email: [your-email@example.com]  
+💼 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+
+> ⭐ If you found this project interesting or useful, give it a star on GitHub!
