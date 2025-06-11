@@ -7,20 +7,6 @@ SerenSoak is a modern, elegant, and secure e-commerce platform focused on sellin
 
 ---
 
-## 📌 Table of Contents
-
-- [💡 About the Project](#-about-the-project)
-- [✨ Features](#-features)
-- [🖼️ Product Showcase](#️-product-showcase-highlights)
-- [🔒 Authentication System](#-authentication-system)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [⚙️ Installation & Setup](#️-installation--setup)
-- [📸 Screenshots](#-screenshots)
-- [🧠 What I Learned](#-what-i-learned)
-- [📬 Feedback](#-feedback)
-
----
-
 ## 💡 About the Project
 
 **SerenSoak** is a mini e-commerce website tailored for a niche market—herbal and luxury bath salts. It was developed as part of my internship project with the goal of showcasing both frontend design and backend development skills in a full-stack Django application.
@@ -66,7 +52,7 @@ Key highlights include:
 
 ---
 
-## 🖼️ Product Showcase Highlights
+## 🖼️ Product Showcase
 
 Here are a few examples of the featured products:
 
