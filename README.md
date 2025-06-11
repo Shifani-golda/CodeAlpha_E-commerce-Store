@@ -2,7 +2,7 @@
 
 SerenSoak is a modern, elegant, and secure e-commerce platform focused on selling **Handcrafted Herbal Bath Salts**. Built using **Django** for the backend and **HTML/CSS/JavaScript** for the frontend, SerenSoak offers a seamless and login-gated shopping experience for self-care enthusiasts.
 
-🌿 **Live Demo**: [Visit Now](https://serensoak.onrender.com) 
+🌿 **Live Demo**: [Visit Now](https://serensoak.onrender.com/)
 🔗 **GitHub Repository**: [SerenSoak GitHub](https://github.com/Shifani-golda/CodeAlpha_E-commerce-Store.git)
 
 ---
