@@ -21,5 +21,5 @@ urlpatterns = [
     path('category/<int:category_id>/', views.store_by_category, name='store_by_category'),
 
     # 🏠 Welcome page
-    path('store/welcome/', views.welcome, name='welcome'),
+    path('welcome/', views.welcome, name='welcome'),
 ]
