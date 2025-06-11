@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dummy-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Serensoak.onrender.com']
+ALLOWED_HOSTS = ['serensoak.onrender.com']
 
 
 
