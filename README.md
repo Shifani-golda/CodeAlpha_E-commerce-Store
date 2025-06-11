@@ -57,9 +57,9 @@ Key highlights include:
 
 Here are a few examples of the featured products:
 
-- 🌸 **Lavender Bliss Soak** – Calming soak for stress relief  
-- 🌿 **Mint Refresh Salt** – Energizing bath with mint & eucalyptus  
-- 🍊 **Citrus Detox Crystals** – Revitalizes and detoxifies skin  
+- 🌸 **Lavender Serenity Bath Salt** – Calming soak for stress relief  
+- 🌿 **Eucalyptus Fresh Relief Bath Salt** – Energizing bath with mint & eucalyptus  
+- 🍊 **Citrus Burst Energizing Bath Salt** – Revitalizes and detoxifies skin  
 
 > ✨ All products are presented with visually appealing cards using CSS & custom design elements.
 
@@ -90,8 +90,8 @@ Here are a few examples of the featured products:
 > 💻 Clone the repository and set it up locally:
 
 ```bash
-git clone https://github.com/yourusername/SerenSoak.git
-cd SerenSoak
+git clone https://github.com/Shifani-golda/CodeAlpha_E-commerce-Store.git
+cd CodeAlpha_E-commerce-Store
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
