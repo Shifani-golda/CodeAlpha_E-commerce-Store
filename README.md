@@ -131,7 +131,7 @@ Through SerenSoak, I gained hands-on experience in:
 
 If you have any suggestions or feedback, feel free to connect with me:
 
-📧 Email: [shifanigolda@karunya.edu.in]  
+📧 Email: shifanigolda@karunya.edu.in  
 💼 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
 
 > ⭐ If you found this project interesting or useful, give it a star on GitHub!
