@@ -11,7 +11,7 @@ SerenSoak is a modern, elegant, and secure e-commerce platform focused on sellin
 
 - [💡 About the Project](#-about-the-project)
 - [✨ Features](#-features)
-- [🖼️ Product Showcase](#️-product-showcase)
+- [🖼️ Product Showcase](#️-product-showcase-highlights)
 - [🔒 Authentication System](#-authentication-system)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [⚙️ Installation & Setup](#️-installation--setup)
