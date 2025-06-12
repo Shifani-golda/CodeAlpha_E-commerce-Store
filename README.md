@@ -35,7 +35,7 @@ Key highlights include:
   - Place orders
 
 ### 🛍️ Product System
-- 12 handcrafted **herbal bath salt** products
+- 12 handcrafted **Herbal Bath Salt** products
 - Each product includes:
   - Name
   - Price
@@ -108,36 +108,36 @@ Create a superuser to access Django Admin:
 
 ## 📸 Screenshots  
 
-- 🔐 **Login Page**
+### 🔐 **Login Page**
   ![Login Page](screenshots/login.png)
 
-- **Register Page**
+### **Register Page**
   ![Register Page](screenshots/register.png)
 
- - **Welcome Page**
+### **Welcome Page**
    ![Welcome Page](screenshots/welcome.png)
    ![Welcome Page](screenshots/welcome1.png)
 
-- 🧂 **Product Listing (after login)**
+### 🛍️ **Product Listing (after login)**
   ![Product listing Page](screenshots/products_lists.png)
 
-- 🧂 **Category Listing**
+### 🧂 **Category Listing**
   ![Category listing Page](screenshots/category_listing.png)
   
 
-- 🖼️ **Individual Product Detail**
+### 🖼️ **Individual Product Detail**
   ![Product Detail Page](screenshots/product_detail.png)
   ![Product Detail Page](screenshots/product_detail1.png)
 
 
-- 🛒 **Cart Page**
+### 🛒 **Cart Page**
    ![Cart Page](screenshots/cart.png)
   ![Cart Page](screenshots/cart1.png)
 
-- **Checkout Page**
+### **Checkout Page**
   ![Checkout Page](screenshots/checkout.png)
 
-- **Order Placement**
+### 📦 **Order Placement**
   ![Order Placement](screenshots/order_placement.png)
 
 ---
