@@ -111,7 +111,7 @@ Create a superuser to access Django Admin:
 ### 🔐 **Login Page**
   ![Login Page](screenshots/login.png)
 
-### **Register Page**
+### 🔐 **Register Page**
   ![Register Page](screenshots/register.png)
 
 ### ✨**Welcome Page**
