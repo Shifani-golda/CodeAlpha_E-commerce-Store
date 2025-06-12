@@ -119,17 +119,26 @@ Create a superuser to access Django Admin:
    ![Welcome Page](screenshots/welcome1.png)
 
 - 🧂 **Product Listing (after login)**
-  ![Product listing Page](screenshots/product_listing.png)
+  ![Product listing Page](screenshots/products_lists.png)
+
+- 🧂 **Category Listing**
+  ![Category listing Page](screenshots/category_listing.png)
+  
 
 - 🖼️ **Individual Product Detail**
   ![Product Detail Page](screenshots/product_detail.png)
+  ![Product Detail Page](screenshots/product_detail1.png)
 
 
-- 
-    
-- 
 - 🛒 **Cart Page**
--
+   ![Cart Page](screenshots/cart.png)
+  ![Cart Page](screenshots/cart1.png)
+
+- **Checkout Page**
+  ![Checkout Page](screenshots/checkout.png)
+
+- **Order Placement**
+  ![Order Placement](screenshots/order_placement.png)
 
 ---
 
