@@ -107,12 +107,29 @@ Create a superuser to access Django Admin:
 
 
 ## 📸 Screenshots  
-<Include these if available>
 
 - 🔐 **Login Page**
+  ![Login Page](screenshots/login.png)
+
+- **Register Page**
+  ![Register Page](screenshots/register.png)
+
+ - **Welcome Page**
+   ![Welcome Page](screenshots/welcome.png)
+   ![Welcome Page](screenshots/welcome1.png)
+
 - 🧂 **Product Listing (after login)**
-- 🛒 **Cart Page**
+  ![Product listing Page](screenshots/product_listing.png)
+
 - 🖼️ **Individual Product Detail**
+  ![Product Detail Page](screenshots/product_detail.png)
+
+
+- 
+    
+- 
+- 🛒 **Cart Page**
+-
 
 ---
 
